@@ -130,7 +130,7 @@ export default function Home() {
       <Navigation />
 
       {/* HERO SECTION */}
-      <section className="min-h-screen flex flex-col items-center justify-between px-6 pt-40 pb-20">
+      <section id="home" className="min-h-screen flex flex-col items-center justify-between px-6 pt-40 pb-20">
 
         {/* TOP: Multilingual Greeting */}
         <div className="text-center">
@@ -183,51 +183,81 @@ export default function Home() {
       </section>
 
       {/* ABOUT ME SECTION */}
-      <section id="aboutme" className="min-h-screen flex flex-col items-center justify-between px-6 pt-28 pb-16 bg-zinc-50 dark:bg-zinc-950">
-        <h2 className="text-5xl font-bold tracking-tight mb-16">About me</h2>
+      <section id="about" className="min-h-screen flex flex-col items-center px-6 pt-28 pb-20 gap-20 bg-zinc-50 dark:bg-zinc-950">
 
-        {/* Top: Professional Summary */}
+        {/* Heading + rule */}
+        <div className="flex flex-col items-center gap-6">
+          <h2 className="text-5xl font-bold tracking-tight text-blue-500">About me</h2>
+          <div className="w-3/5 h-px bg-zinc-300 dark:bg-zinc-700" />
+        </div>
+
+        {/* Professional Summary */}
         <div className="text-center space-y-5 max-w-2xl">
-          <h3 className="text-2xl font-semibold mt-1">
-            Professional Summary
-          </h3>
+          <h3 className="text-2xl font-semibold">Professional Summary</h3>
           <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400">
-            Results-driven Senior Software Engineer with 18 years of experience building scalable, user-centric platforms and shared infrastructure for large-scale data and consumer applications. 
+            Results-driven Senior Software Engineer with 18 years of experience building scalable, user-centric platforms and shared infrastructure for large-scale data and consumer applications.
             Expertise in designing and maintaining React/TypeScript-based systems, including monorepos, Micro-Frontends, and developer tooling that accelerate team velocity.
-            Proven track record using AI (particularly Claude) to enhance code review, observability, deployment pipelines, and internal agentic workflows—reducing engineering friction and on-call burden. 
-            Passionate about observability, performance, reliability, and creating intuitive abstractions that empower cross-functional teams. 
+            Proven track record using AI (particularly Claude) to enhance code review, observability, deployment pipelines, and internal agentic workflows—reducing engineering friction and on-call burden.
+            Passionate about observability, performance, reliability, and creating intuitive abstractions that empower cross-functional teams.
           </p>
         </div>
 
-        {/* Middle: Skills */}
-        <div className="text-center space-y-5 max-w-2xl">
-          <h3 className="text-2xl font-semibold mt-1">
-            Skills
-          </h3>
-          <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400">
-            Next JS 15, React 19, TypeScript, HTML, CSS, Tailwind CSS, 
-            BFF, GraphQL, Apollo, Module Federation, Express, RESTFul,
-            Claude Code, Prompt Engineering, MCP, Agent Harnessing, Orchestration, RAG, 
-            CI/CD(Spinnaker), Docker, Kubernetes, Vercel, Github
-          </p>
+        {/* Skills */}
+        <div className="text-center space-y-6 max-w-3xl">
+          <h3 className="text-2xl font-semibold">Skills</h3>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {[
+              'Next.js 15', 'React 19', 'TypeScript', 'HTML', 'CSS', 'Tailwind CSS',
+              'BFF', 'GraphQL', 'Apollo', 'Module Federation', 'Express', 'RESTful',
+              'Claude Code', 'Prompt Engineering', 'MCP', 'Agent Harnessing', 'Orchestration', 'RAG',
+              'CI/CD', 'Spinnaker', 'Docker', 'Kubernetes', 'Vercel', 'GitHub',
+            ].map((skill) => (
+              <span
+                key={skill}
+                className="px-3.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800/60 text-sm text-zinc-700 dark:text-zinc-300"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
 
-        {/* Bottom: Certificates scrolling band */}
-        <div className="text-center space-y-5 max-w-2xl">
-          <h3 className="text-2xl font-semibold mt-1">
-            Certifications
-          </h3>
-          <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400">
-            CSM, CKAD, Six Sigma Black Belt
-          </p>
+        {/* Certifications */}
+        <div className="text-center space-y-6 w-full max-w-2xl">
+          <h3 className="text-2xl font-semibold">Certifications</h3>
+          <div
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory justify-center pb-1"
+            style={{ scrollbarWidth: 'none' }}
+          >
+            {[
+              { abbr: 'CSM',           full: 'Certified Scrum Master' },
+              { abbr: 'CKAD',          full: 'Certified Kubernetes\nApplication Developer' },
+              { abbr: 'Six Sigma',     full: 'Black Belt' },
+            ].map(({ abbr, full }) => (
+              <div
+                key={abbr}
+                className="snap-center shrink-0 flex flex-col items-center gap-1.5 border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800/60 rounded-xl px-8 py-5 min-w-44"
+              >
+                <span className="font-semibold text-base">{abbr}</span>
+                <span className="text-xs text-zinc-500 dark:text-zinc-400 whitespace-pre-line leading-snug">{full}</span>
+              </div>
+            ))}
+          </div>
         </div>
+
       </section>
 
       {/* EXPERIENCE - Split Layout */}
       <section id="experience" className="min-h-screen py-24 bg-zinc-50 dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-5xl font-bold tracking-tight mb-16">Experience</h2>
 
+        <div className="flex flex-col items-center mb-26">
+          <div className="w-fit flex flex-col items-center gap-6">
+            <h2 className="text-5xl font-bold tracking-tight text-blue-500">Professional Experience</h2>
+            <div className="w-3/5 h-px bg-zinc-300 dark:bg-zinc-700" />
+          </div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12">
             {/* LEFT COLUMN */}
             <div className="md:col-span-5 md:sticky md:top-24 self-start space-y-6">
@@ -280,10 +310,15 @@ export default function Home() {
 
       {/* CONTACT */}
       <section id="contact" className="min-h-screen py-24 bg-white dark:bg-zinc-950">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-5xl font-bold tracking-tight mb-4 text-center">Get In Touch</h2>
-          <p className="text-center text-zinc-500 dark:text-zinc-400 mb-16">Let's talk about your project</p>
 
+        <div className="flex flex-col items-center mb-26">
+          <div className="w-fit flex flex-col items-center gap-6">
+            <h2 className="text-5xl font-bold tracking-tight text-blue-500">Get in Touch</h2>
+            <div className="w-3/5 h-px bg-zinc-300 dark:bg-zinc-700" />
+          </div>
+        </div>
+
+        <div className="max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             {/* Left Info */}
             <div>

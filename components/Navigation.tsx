@@ -5,11 +5,10 @@ import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 const navLinks = [
+  { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'A.R.I.A', href: 'meetaria' },
+  // { name: 'A.R.I.A', href: 'meetaria' }, -- hidden for now.
   { name: 'Contact', href: '#contact' },
 ];
 
