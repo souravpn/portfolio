@@ -64,7 +64,12 @@ export default function ARIAHero() {
             <motion.div animate={{ rotate: -360 }} transition={{ duration: 55, repeat: Infinity, ease: 'linear' }} className="absolute inset-8 sm:inset-12 border border-[#8B5CF6]/20 rounded-[3rem] sm:rounded-[4rem]" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-3xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 shadow-2xl shadow-[#8B5CF6]/30 overflow-hidden">
-                <img src="/aria-face.png" alt="A.R.I.A Orb" className="w-full h-full object-contain md:p-5" />
+                <img 
+                    src="/aria-face.png" 
+                    alt="A.R.I.A Orb" 
+                    className="w-full h-full object-contain md:p-5" 
+                    loading="eager"
+                />
               </div>
             </div>
           </div>

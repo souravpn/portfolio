@@ -25,9 +25,10 @@ export default function CTASection() {
           whileTap={{ scale: 0.96 }}
           className="inline-flex items-center gap-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 font-semibold text-lg sm:text-2xl px-12 sm:px-16 py-7 sm:py-8 rounded-3xl hover:shadow-2xl hover:shadow-[#8B5CF6]/40 transition-all mx-auto"
         >
-          Open ARIA Now
-          <span className="text-4xl">🎙️</span>
+          Try ARIA Now
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
         </motion.a>
+        
       </div>
     </motion.section>
   );
