@@ -1,11 +1,15 @@
-'use client';
-import Lenis from '@studio-freight/lenis';
-import { useEffect } from 'react';
-import './globals.css';
-import { ThemeProvider } from 'next-themes';
-import SplashScreen from '@/components/SplashScreen';
+"use client";
+import Lenis from "@studio-freight/lenis";
+import { useEffect } from "react";
+import "./globals.css";
+import { ThemeProvider } from "next-themes";
+// import SplashScreen from "@/components/SplashScreen";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   useEffect(() => {
     const lenis = new Lenis({
       lerp: 0.09,
@@ -26,12 +30,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
-        <ThemeProvider 
-          attribute="class" 
-          defaultTheme="dark" 
-          enableSystem
-        >
-          <SplashScreen />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {/* <SplashScreen /> */}
           {children}
         </ThemeProvider>
       </body>
