@@ -20,6 +20,7 @@ const greetings = [
   { text: "Hallo", lang: "Deutsch" },
   { text: "안녕하세요", lang: "한국어" },
   { text: "⠓⠑⠇⠇⠕", lang: "Braille" },
+  { text: "Hej", lang: "Swedish" },
   { text: "👋", lang: "ASL (Sign Language)" },
   { text: ".... . .-.. .-.. ---", lang: "Morse Code" },
 ];
@@ -116,10 +117,20 @@ export default function Home() {
 
   return (
     <main className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white min-h-screen overflow-x-hidden">
+      {/* <div className="fixed inset-0 z-auto hidden dark:block pointer-events-none">
+        <Image
+          src="/sf-dark-bg.png"
+          alt=""
+          fill
+          className="object-cover opacity-[0.3]"
+          priority={false}
+          quality={60}
+        />
+      </div> */}
       <Navigation />
 
       {/* HERO SECTION */}
-      <section className="min-h-screen flex flex-col items-center justify-between px-6 pt-28 pb-16">
+      <section className="min-h-screen flex flex-col items-center justify-between px-6 pt-40 pb-20">
 
         {/* TOP: Multilingual Greeting */}
         <div className="text-center">
@@ -129,7 +140,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.9 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="text-5xl md:text-6xl lg:text-7xl font-light text-blue-500 tracking-wide"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-500 tracking-wide"
           >
             {greetings[currentGreeting].text}
           </motion.div>
@@ -164,7 +175,7 @@ export default function Home() {
           </h1>
 
           <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400">
-            A passionate Web Developer &amp; Designer crafting seamless,
+            Passionate Gen AI and Web Developer &amp; Designer crafting seamless,
             responsive, and user-centric digital experiences.
           </p>
         </div>
@@ -181,7 +192,7 @@ export default function Home() {
             Professional Summary
           </h3>
           <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400">
-            Results-driven Senior Software Engineer with 8+ years of experience building scalable, user-centric platforms and shared infrastructure for large-scale data and consumer applications. 
+            Results-driven Senior Software Engineer with 18 years of experience building scalable, user-centric platforms and shared infrastructure for large-scale data and consumer applications. 
             Expertise in designing and maintaining React/TypeScript-based systems, including monorepos, Micro-Frontends, and developer tooling that accelerate team velocity.
             Proven track record using AI (particularly Claude) to enhance code review, observability, deployment pipelines, and internal agentic workflows—reducing engineering friction and on-call burden. 
             Passionate about observability, performance, reliability, and creating intuitive abstractions that empower cross-functional teams. 
@@ -194,19 +205,20 @@ export default function Home() {
             Skills
           </h3>
           <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400">
-            A passionate Web Developer &amp; Designer crafting seamless,
-            responsive, and user-centric digital experiences.
+            Next JS 15, React 19, TypeScript, HTML, CSS, Tailwind CSS, 
+            BFF, GraphQL, Apollo, Module Federation, Express, RESTFul,
+            Claude Code, Prompt Engineering, MCP, Agent Harnessing, Orchestration, RAG, 
+            CI/CD(Spinnaker), Docker, Kubernetes, Vercel, Github
           </p>
         </div>
+
         {/* Bottom: Certificates scrolling band */}
         <div className="text-center space-y-5 max-w-2xl">
           <h3 className="text-2xl font-semibold mt-1">
             Certifications
           </h3>
-
           <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400">
-            A passionate Web Developer &amp; Designer crafting seamless,
-            responsive, and user-centric digital experiences.
+            CSM, CKAD, Six Sigma Black Belt
           </p>
         </div>
       </section>
@@ -370,6 +382,31 @@ export default function Home() {
           </div>
         </div>
       </footer>
+            {/* Back to Top Button - Smart Light/Dark */}
+      <motion.button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-8 right-8 z-50 p-4 
+                   bg-white dark:bg-zinc-900 
+                   hover:bg-blue-600 dark:hover:bg-blue-600 
+                   border border-zinc-200 dark:border-zinc-700 
+                   text-zinc-800 dark:text-zinc-300 
+                   hover:text-white dark:hover:text-white
+                   rounded-full shadow-lg dark:shadow-2xl 
+                   transition-all duration-3000 group"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        aria-label="Back to top"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          className="w-5 h-5 group-hover:-translate-y-1 transition-transform" 
+          fill="none" 
+          viewBox="0 -4 24 24" 
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 10l7-7m0 0l7 7" />
+        </svg>
+      </motion.button>
     </main>
   );
 }
