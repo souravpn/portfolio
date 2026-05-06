@@ -25,82 +25,140 @@ const greetings = [
   { text: ".... . .-.. .-.. ---", lang: "Morse Code" },
 ];
 
-const experiences = [
+const experiences: Experience[] = [
   {
     company: "Apple Inc.",
     role: "Frontend Developer (with AI)",
-    period: "2023 — Present",
+    period: "2024 — Present",
     bullets: [
-      "Led development of core features used by 10k+ users",
-      "Improved application performance by 40%",
-      "Mentored 3 junior developers",
-      "Led development of core features used by 10k+ users",
-      "Improved application performance by 40%",
-      "Mentored 3 junior developers",
-      "Led development of core features used by 10k+ users",
-      "Improved application performance by 40%",
+      "Enhanced AI-assisted development workflows by integrating Claude Code plugins into pre-commit and PR processes, incorporating automated linting, vulnerability scanning, unit tests, and silent failure detection—completing full checks in under 5 minutes and significantly boosting developer velocity.",
+      "Built a search agent using Claude, vector embeddings, and Slack integration to query documentation and historical resolutions, reducing weekly on-call time for engineers by 65%",
+      "Developed an AI Assistant agent with human-in-the-loop verification for provisioning clusters, accounts, catalogs, and services, streamlining operational tasks.",
+      "Created a scribe agent (side project) that transcribes and categorizes Webex meeting audio into structured weekly reports with progress and blockers, achieving ~90% accuracy across varied meeting conditions through iterative human feedback.",
+      "Automated access-granting workflows using Claude and MCP, improving security and efficiency with oversight mechanisms.",
     ],
-    tech: ["React", "Next.js", "TypeScript", "Tailwind"],
+    tech: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Shadcn/UI",
+      "Claude code",
+      "Vibe Coding",
+      "MCP",
+      "Agent Harness",
+      "Vector DB",
+    ],
   },
   {
     company: "Apple Inc.",
     role: "Frontend Developer",
-    period: "2022 — 2023",
+    period: "2018 — 2024",
     bullets: [
-      "Built responsive web applications",
-      "Collaborated with design team on UI/UX",
-      "Implemented modern animation patterns",
-      "Built responsive web applications",
-      "Collaborated with design team on UI/UX",
-      "Implemented modern animation patterns",
-      "Built responsive web applications",
-      "Collaborated with design team on UI/UX",
-      "Implemented modern animation patterns",
+      "Designed, developed, and maintained a monorepo-based data platform using React, Express, GraphQL,TypeScript, and Webpack, enabling service teams to efficiently deploy and manage services and users.",
+      "Led migration to a Micro-Frontend architecture with Apollo Module Federation, reducing deployment times by ~50% and improving team independence.",
+      "Built an anomaly detection dashboard for iCloud device usage, incorporating ML-driven insights to identify malicious activity, fraud (~600K accounts captured), user adoption, and churn. Achieved ~92% learning accuracy and 95% churn prediction accuracy for new iOS users.",
+      "Contributed to a Scala-based Anomaly service daemon that runs time-series ML models on live data stores, delivering notifications for critical KPIs used by Content SREs and ML Engineers.",
     ],
-    tech: ["JavaScript", "Framer Motion", "Figma"],
+    tech: [
+      "JavaScript",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "CSS",
+      "Sentry",
+      "GraphQL",
+      "Apollo",
+      "Module Federation",
+      "Express Server",
+      "RESTFul",
+      "BFF",
+      "Kubernetes",
+      "Docker",
+    ],
   },
   {
     company: "Apple Inc.",
-    role: "Big Data Engineer",
-    period: "2022 — 2023",
+    role: "Big Data Engineer/Scientist",
+    period: "2014 — 2018",
     bullets: [
-      "Built responsive web applications",
-      "Collaborated with design team on UI/UX",
-      "Implemented modern animation patterns",
-      "Built responsive web applications",
-      "Collaborated with design team on UI/UX",
-      "Implemented modern animation patterns",
-      "Built responsive web applications",
-      "Collaborated with design team on UI/UX",
-      "Implemented modern animation patterns",
+      "Developed the end-to-end ETL framework for Apple Pay analytics, which led to many valuable insights and decisions in the early days following Apple Pay Launch.",
+      "Lead the Hadoop data analytics team of Apple iCloud Reporting Project",
+      "Analyzed usage patterns and behavior meticulously, to discover potential areas of improvement in iCloud Services and factors responsible for Users churning out",
+      "Developed the iCloud Reporting Automation Framework using Map-Reduce in Java, Pig-Latin and shell, which processed Terabytes of data in minutes",
     ],
-    tech: ["JavaScript", "Framer Motion", "Figma"],
+    subSection: {
+      title: "Machine Learning [Brief one year stint]",
+      bullets: [
+        "Developed and executed machine learning models on top of big data (HDFS and Hive) using SparkML and Scala pipeline",
+        "Developed classification model to predict free user conversion to paid using Logistic Regression and Random Forest",
+        "Developed Time Series forecasting on new users using Python and Statsmodel package",
+      ],
+    },
+    tech: [
+      "Hadoop",
+      "Hive",
+      "NoSQL",
+      "Pig Latin",
+      "Map Reduce",
+      "Data Analytics",
+      "Data Engineering",
+      "Business Insights",
+    ],
+    techHighlighted: [
+      "ML",
+      "Time Series",
+      "S/ARIMA/X",
+      "Scala",
+      "Spark",
+      "Python",
+      "Statsmodel",
+    ],
   },
   {
     company: "Infosys Technologies Ltd.",
-    role: "Technology Lead",
-    period: "2022 — 2023",
+    role: "Technology Analyst/Lead",
+    period: "2008 — 2014",
     bullets: [
-      "Built responsive web applications",
-      "Collaborated with design team on UI/UX",
-      "Implemented modern animation patterns",
-      "Built responsive web applications",
-      "Collaborated with design team on UI/UX",
-      "Implemented modern animation patterns",
+      "Spearheaded the migration of Business Analytics platform from OpenSource based ETL to Big Data, as part of MobileMe to iCloud migration.",
+      "Introduced Big Data processing Technologies in anticipation of the growing volume of data in service usage",
+      "Integral part of designing, developing, testing and maintaining automation scripts for data analytics and reporting for iCloud suite of services",
     ],
-    tech: ["JavaScript", "Framer Motion", "Figma"],
+    tech: [
+      "Hadoop",
+      "Big Table",
+      "Oracle PL/SQL",
+      "Unix",
+      "Perl",
+      "Hive",
+      "ETL Pipelines",
+      "KPI Generation",
+    ],
   },
+];
+
+type Experience = {
+  company: string;
+  role: string;
+  period: string;
+  bullets: string[];
+  tech: string[];
+  subSection?: { title: string; bullets: string[] };
+  techHighlighted?: string[];
+};
+
+type Cert = { abbr: string; full: string; src: string };
+
+const certs: Cert[] = [
+  { abbr: "CSM", full: "Certified Scrum Master", src: "/csm.png" },
   {
-    company: "Infosys Technologies Ltd.",
-    role: "Technology Analyst",
-    period: "2022 — 2023",
-    bullets: [
-      "Built responsive web applications",
-      "Collaborated with design team on UI/UX",
-      "Implemented modern animation patterns",
-    ],
-    tech: ["JavaScript", "Framer Motion", "Figma"],
+    abbr: "CKAD",
+    full: "Certified Kubernetes\nApplication Developer",
+    src: "/ckad.png",
   },
+  { abbr: "L6SB", full: "Lean 6 Sigma Black Belt", src: "/lean6s-black.png" },
+  { abbr: "L6SG", full: "Lean 6 Sigma Green Belt", src: "/lean6s-green.png" },
+  { abbr: "L6SY", full: "Lean 6 Sigma Yellow Belt", src: "/lean6s-yellow.png" },
 ];
 
 const splashWords = [
@@ -115,8 +173,44 @@ export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
   const [attachments, setAttachments] = useState<File[]>([]);
   const [isDragging, setIsDragging] = useState(false);
+  const [activeCert, setActiveCert] = useState(0);
+  const [selectedCert, setSelectedCert] = useState<Cert | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [formState, setFormState] = useState<
+    "idle" | "sending" | "sent" | "error"
+  >("idle");
+
+  const handleFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormState("sending");
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("email", formData.email);
+    data.append("subject", formData.subject);
+    data.append("message", formData.message);
+    attachments.forEach((f) => data.append("attachments", f));
+    try {
+      const res = await fetch("/api/contact", { method: "POST", body: data });
+      if (!res.ok) throw new Error();
+      setFormState("sent");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setAttachments([]);
+    } catch {
+      setFormState("error");
+    }
+  };
   const fileInputRef = useRef<HTMLInputElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const certRef = useRef<HTMLDivElement>(null);
 
   const ALLOWED_TYPES = [
     "application/pdf",
@@ -160,6 +254,35 @@ export default function Home() {
   useEffect(() => {
     const t = setTimeout(() => setShowSplash(false), 3050);
     return () => clearTimeout(t);
+  }, []);
+
+  const scrollToCert = (index: number) => {
+    const container = certRef.current;
+    if (!container) return;
+    const first = container.children[0] as HTMLElement;
+    const second = container.children[1] as HTMLElement;
+    if (!first) return;
+    const step = second
+      ? second.offsetLeft - first.offsetLeft
+      : first.offsetWidth;
+    container.scrollTo({ left: step * index, behavior: "smooth" });
+    setActiveCert(index);
+  };
+
+  useEffect(() => {
+    const container = certRef.current;
+    if (!container) return;
+    const handleScroll = () => {
+      const first = container.children[0] as HTMLElement;
+      const second = container.children[1] as HTMLElement;
+      if (!first || !second) return;
+      const step = second.offsetLeft - first.offsetLeft;
+      if (!step) return;
+      const index = Math.round(container.scrollLeft / step);
+      setActiveCert(Math.max(0, Math.min(index, certs.length - 1)));
+    };
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToCard = (index: number) => {
@@ -288,7 +411,7 @@ export default function Home() {
               Sourav Nayak
             </h1>
 
-            <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400">
+            <p className="text-lg md:text-lg text-zinc-500 dark:text-zinc-400">
               Passionate Gen AI and Web Developer &amp; Designer crafting
               seamless, responsive, and user-centric digital experiences.
             </p>
@@ -309,9 +432,9 @@ export default function Home() {
           </div>
 
           {/* Professional Summary */}
-          <div className="text-center space-y-5 max-w-2xl">
+          <div id="summary" className="text-center space-y-5 max-w-2xl">
             <h3 className="text-2xl font-semibold">Professional Summary</h3>
-            <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400">
+            <p className="text-lg md:text-lg text-zinc-500 dark:text-zinc-400">
               Results-driven Senior Software Engineer with 18 years of
               experience building scalable, user-centric platforms and shared
               infrastructure for large-scale data and consumer applications.
@@ -327,7 +450,7 @@ export default function Home() {
           </div>
 
           {/* Skills */}
-          <div className="text-center space-y-6 max-w-3xl">
+          <div id="skills" className="text-center space-y-6 max-w-3xl">
             <h3 className="text-2xl font-semibold">Skills</h3>
             <div className="flex flex-wrap gap-2 justify-center">
               {[
@@ -367,29 +490,94 @@ export default function Home() {
           </div>
 
           {/* Certifications */}
-          <div className="text-center space-y-6 w-full max-w-2xl">
+          <div
+            id="certifications"
+            className="text-center space-y-5 w-full max-w-3xl"
+          >
             <h3 className="text-2xl font-semibold">Certifications</h3>
-            <div
-              className="flex gap-4 overflow-x-auto snap-x snap-mandatory justify-center pb-1"
-              style={{ scrollbarWidth: "none" }}
-            >
-              {[
-                { abbr: "CSM", full: "Certified Scrum Master" },
-                {
-                  abbr: "CKAD",
-                  full: "Certified Kubernetes\nApplication Developer",
-                },
-                { abbr: "Six Sigma", full: "Black Belt" },
-              ].map(({ abbr, full }) => (
-                <div
-                  key={abbr}
-                  className="snap-center shrink-0 flex flex-col items-center gap-1.5 border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800/60 rounded-xl px-8 py-5 min-w-44"
+
+            <div className="flex items-center gap-3">
+              {/* Prev */}
+              <button
+                onClick={() => scrollToCert(activeCert - 1)}
+                disabled={activeCert === 0}
+                aria-label="Previous certification"
+                className="hidden sm:flex shrink-0 w-9 h-9 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-500 hover:text-blue-500 hover:border-blue-400 transition disabled:opacity-20 disabled:pointer-events-none"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-4 h-4"
                 >
-                  <span className="font-semibold text-base">{abbr}</span>
-                  <span className="text-xs text-zinc-500 dark:text-zinc-400 whitespace-pre-line leading-snug">
-                    {full}
-                  </span>
-                </div>
+                  <path
+                    fillRule="evenodd"
+                    d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              {/* Track */}
+              <div
+                ref={certRef}
+                className="flex-1 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-1"
+                style={{ scrollbarWidth: "none" }}
+              >
+                {certs.map((cert) => (
+                  <div
+                    key={cert.abbr}
+                    onClick={() => setSelectedCert(cert)}
+                    className="snap-start shrink-0 flex flex-col items-center gap-3 border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800/60 rounded-xl px-4 py-5 cursor-pointer hover:border-blue-400 hover:shadow-md transition"
+                    style={{ width: "calc(33.333% - 11px)" }}
+                  >
+                    <Image
+                      src={cert.src}
+                      alt={cert.full}
+                      width={115}
+                      height={115}
+                      quality={90}
+                      className="object-contain"
+                      style={{ height: "auto" }}
+                    />
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400 whitespace-pre-line leading-snug text-center">
+                      {cert.full}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Next */}
+              <button
+                onClick={() => scrollToCert(activeCert + 1)}
+                disabled={activeCert === certs.length - 1}
+                aria-label="Next certification"
+                className="hidden sm:flex shrink-0 w-9 h-9 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-500 hover:text-blue-500 hover:border-blue-400 transition disabled:opacity-20 disabled:pointer-events-none"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-4 h-4"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2">
+              {certs.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => scrollToCert(i)}
+                  aria-label={`Go to certification ${i + 1}`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${activeCert === i ? "w-5 bg-blue-500" : "w-1.5 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400"}`}
+                />
               ))}
             </div>
           </div>
@@ -402,7 +590,7 @@ export default function Home() {
         >
           <div className="flex flex-col items-center mb-16 px-6">
             <div className="flex flex-col items-center gap-6 w-full max-w-3xl">
-              <h2 className="text-4xl font-bold tracking-tight text-blue-500 text-center w-full">
+              <h2 className="text-5xl font-bold tracking-tight text-blue-500 text-center w-full">
                 Professional Experience
               </h2>
               <div className="w-3/5 h-px bg-zinc-300 dark:bg-zinc-700" />
@@ -416,7 +604,7 @@ export default function Home() {
               onClick={() => scrollToCard(activeExp - 1)}
               disabled={activeExp === 0}
               aria-label="Previous experience"
-              className="shrink-0 w-10 h-10 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-400 transition disabled:opacity-20 disabled:pointer-events-none"
+              className="hidden sm:flex shrink-0 w-10 h-10 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-400 transition disabled:opacity-20 disabled:pointer-events-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -474,6 +662,23 @@ export default function Home() {
                           </li>
                         ))}
                       </ul>
+                      {exp.subSection && (
+                        <div className="mt-5 rounded-xl border border-amber-200 dark:border-amber-500/30 bg-amber-50 dark:bg-amber-950/20 px-5 py-4">
+                          <p className="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-3">
+                            {exp.subSection.title}
+                          </p>
+                          <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-300">
+                            {exp.subSection.bullets.map((bullet, i) => (
+                              <li
+                                key={i}
+                                className="pl-4 border-l border-amber-300 dark:border-amber-600/40"
+                              >
+                                {bullet}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
 
                     {/* Card footer — tech pills */}
@@ -482,6 +687,14 @@ export default function Home() {
                         <span
                           key={i}
                           className="px-3 py-1 text-xs font-medium rounded border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {exp.techHighlighted?.map((tech, i) => (
+                        <span
+                          key={`hl-${i}`}
+                          className="px-3 py-1 text-xs font-medium rounded border border-amber-200 dark:border-amber-500/30 bg-amber-50 dark:bg-amber-950/20 text-amber-700 dark:text-amber-300"
                         >
                           {tech}
                         </span>
@@ -497,7 +710,7 @@ export default function Home() {
               onClick={() => scrollToCard(activeExp + 1)}
               disabled={activeExp === experiences.length - 1}
               aria-label="Next experience"
-              className="shrink-0 w-10 h-10 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-400 transition disabled:opacity-20 disabled:pointer-events-none"
+              className="hidden sm:flex shrink-0 w-10 h-10 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-400 transition disabled:opacity-20 disabled:pointer-events-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -549,9 +762,18 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-16">
               {/* Left Info */}
               <div>
-                <p className="text-xl mb-10 text-zinc-600 dark:text-zinc-300">
-                  I'm currently available for freelance work or full-time
-                  opportunities. If you have an idea, let's build it together.
+                <p className="text-base md:text-base mb-10 text-zinc-600 dark:text-zinc-300">
+                  Situated in the sunny and scenic Pacific coast of the San
+                  Francisco Bay Area, you will find me very approachable and
+                  ready to help.
+                  <br />
+                  <br />I am always excited to collaborate and work on cool new
+                  stuff or brainstorm and discuss innovative ideas.
+                  <br />
+                  <br />
+                  Always one coffee away! <br />
+                  <br />
+                  Feel free to reach out and say Hello.
                 </p>
 
                 <div className="space-y-8">
@@ -562,7 +784,7 @@ export default function Home() {
                     <div>
                       <p className="font-medium">Email</p>
                       <p className="text-blue-500 dark:text-blue-400">
-                        sourav@example.com
+                        souravpn1985@gmail.com
                       </p>
                     </div>
                   </div>
@@ -573,55 +795,49 @@ export default function Home() {
                     <div>
                       <p className="font-medium">Location</p>
                       <p className="text-zinc-600 dark:text-zinc-300">
-                        Gilroy, California (Remote Available)
+                        San Francisco Bay Area, CA (Remote Available)
                       </p>
                     </div>
                   </div>
-                </div>
-
-                <div className="flex gap-6 mt-12">
-                  <a
-                    href="#"
-                    className="text-3xl hover:text-blue-500 transition"
-                  >
-                    in
-                  </a>
-                  <a
-                    href="#"
-                    className="text-3xl hover:text-blue-500 transition"
-                  >
-                    🐙
-                  </a>
-                  <a
-                    href="#"
-                    className="text-3xl hover:text-blue-500 transition"
-                  >
-                    𝕏
-                  </a>
                 </div>
               </div>
 
               {/* Contact Form */}
               <div className="bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-700 rounded-3xl p-8">
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <input
                     type="text"
+                    name="name"
                     placeholder="Your Name"
+                    required
+                    value={formData.name}
+                    onChange={handleFormChange}
                     className="w-full bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-700 rounded-2xl px-6 py-4 text-zinc-900 dark:text-white placeholder:text-zinc-400"
                   />
                   <input
                     type="email"
+                    name="email"
                     placeholder="Your Email"
+                    required
+                    value={formData.email}
+                    onChange={handleFormChange}
                     className="w-full bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-700 rounded-2xl px-6 py-4 text-zinc-900 dark:text-white placeholder:text-zinc-400"
                   />
                   <input
                     type="text"
+                    name="subject"
                     placeholder="Subject"
+                    value={formData.subject}
+                    onChange={handleFormChange}
                     className="w-full bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-700 rounded-2xl px-6 py-4 text-zinc-900 dark:text-white placeholder:text-zinc-400"
                   />
                   <textarea
+                    name="message"
                     placeholder="Your Message"
                     rows={4}
+                    required
+                    value={formData.message}
+                    onChange={handleFormChange}
                     className="w-full bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-700 rounded-3xl px-6 py-4 text-zinc-900 dark:text-white placeholder:text-zinc-400"
                   />
 
@@ -738,9 +954,30 @@ export default function Home() {
                     )}
                   </div>
 
-                  <button className="w-full py-4 bg-linear-to-r from-blue-500 to-cyan-400 text-white rounded-full font-medium text-lg hover:scale-105 transition">
-                    Send Message
-                  </button>
+                  <div className="flex justify-center">
+                    <button
+                      type="submit"
+                      disabled={formState === "sending" || formState === "sent"}
+                      className="w-[60%] py-3 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 disabled:opacity-60 disabled:pointer-events-none text-white rounded-xl font-medium text-base transition"
+                    >
+                      {formState === "sending"
+                        ? "Sending…"
+                        : formState === "sent"
+                          ? "Sent ✓"
+                          : "Send Message"}
+                    </button>
+                  </div>
+
+                  {formState === "error" && (
+                    <p className="text-center text-sm text-red-500">
+                      Something went wrong — please try again.
+                    </p>
+                  )}
+                  {formState === "sent" && (
+                    <p className="text-center text-sm text-teal-500">
+                      Message delivered! I'll get back to you soon.
+                    </p>
+                  )}
                 </form>
               </div>
             </div>
@@ -750,63 +987,22 @@ export default function Home() {
         {/* FOOTER */}
         <footer className="bg-zinc-50/20 dark:bg-zinc-950/20 border-t border-zinc-200 dark:border-zinc-800 py-16">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid md:grid-cols-3 gap-10">
-              {/* Left - Branding */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {/* Left - Branding + Socials */}
               <div>
                 <div className="text-2xl font-bold tracking-tighter mb-4">
                   Sourav.
                 </div>
-                <p className="text-zinc-500 dark:text-zinc-400 max-w-xs">
-                  Crafting digital experiences with passion and precision.
-                </p>
-              </div>
-
-              {/* Center - Quick Links */}
-              <div>
-                <h4 className="font-semibold mb-6 text-sm uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                  Quick Navigation
-                </h4>
-                <div className="grid grid-cols-2 gap-y-3 text-sm text-zinc-600 dark:text-zinc-300">
-                  <a href="#about" className="hover:text-blue-500 transition">
-                    About
-                  </a>
+                <div className="flex gap-6 text-2xl text-zinc-600 dark:text-zinc-300">
                   <a
-                    href="#experience"
-                    className="hover:text-blue-500 transition"
-                  >
-                    Experience
-                  </a>
-                  <a
-                    href="#projects"
-                    className="hover:text-blue-500 transition"
-                  >
-                    Projects
-                  </a>
-                  <a href="#skills" className="hover:text-blue-500 transition">
-                    Skills
-                  </a>
-                  <a href="#contact" className="hover:text-blue-500 transition">
-                    Contact
-                  </a>
-                </div>
-              </div>
-
-              {/* Right - Social + Credits */}
-              <div className="flex flex-col md:items-end">
-                <h4 className="font-semibold mb-6 text-sm uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                  Connect
-                </h4>
-
-                <div className="flex gap-6 text-2xl mb-10 text-zinc-600 dark:text-zinc-300">
-                  <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/sourav-prakash-nayak-42362364"
                     target="_blank"
                     className="hover:text-blue-500 transition"
                   >
                     in
                   </a>
                   <a
-                    href="https://github.com"
+                    href="https://github.com/souravpn"
                     target="_blank"
                     className="hover:text-blue-500 transition"
                   >
@@ -820,25 +1016,100 @@ export default function Home() {
                     𝕏
                   </a>
                 </div>
+              </div>
 
-                <div className="text-right text-sm text-zinc-400 dark:text-zinc-500">
+              {/* Center - Quick Navigation */}
+              <div>
+                <h4 className="font-semibold mb-6 text-sm uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+                  Quick Navigation
+                </h4>
+                <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-zinc-600 dark:text-zinc-300">
+                  {/* Col 1 */}
+                  <div className="flex flex-col gap-3">
+                    <a href="#home" className="hover:text-blue-500 transition">
+                      Home
+                    </a>
+                    <a href="#about" className="hover:text-blue-500 transition">
+                      About
+                    </a>
+                    <a
+                      href="#summary"
+                      className="hover:text-blue-500 transition pl-3 text-xs text-zinc-500 dark:text-zinc-400"
+                    >
+                      Summary
+                    </a>
+                    <a
+                      href="#skills"
+                      className="hover:text-blue-500 transition pl-3 text-xs text-zinc-500 dark:text-zinc-400"
+                    >
+                      Skills
+                    </a>
+                    <a
+                      href="#certifications"
+                      className="hover:text-blue-500 transition pl-3 text-xs text-zinc-500 dark:text-zinc-400"
+                    >
+                      Certifications
+                    </a>
+                  </div>
+                  {/* Col 2 */}
+                  <div className="flex flex-col gap-3">
+                    <a
+                      href="#experience"
+                      className="hover:text-blue-500 transition"
+                    >
+                      Experience
+                    </a>
+                    <a
+                      href="#contact"
+                      className="hover:text-blue-500 transition"
+                    >
+                      Contact
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right - Credits */}
+              <div className="flex flex-col md:items-end">
+                <div className="md:text-right text-sm text-zinc-400 dark:text-zinc-500">
                   <p>© {new Date().getFullYear()} Sourav Prakash Nayak</p>
                   <p className="mt-1">
                     Made with ❤️ in Morgan Hill, California
                   </p>
-                  <div className="mt-2 flex flex-wrap gap-1.5 justify-end">
-                    <span className="px-2 py-0.5 rounded-full text-xs bg-zinc-200 dark:bg-black/70 text-zinc-800 dark:text-white border border-zinc-300 dark:border-white/10">
+                  <div className="mt-2 mb-2 flex flex-wrap gap-1.5 md:justify-end">
+                    <span className="px-2 py-0.5 rounded text-xs bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-500/20">
                       Next.js 15
                     </span>
-                    <span className="px-2 py-0.5 rounded-full text-xs bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-500/20">
+                    <span className="px-2 py-0.5 rounded text-xs bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-500/20">
                       Tailwind CSS
                     </span>
-                    <span className="px-2 py-0.5 rounded-full text-xs bg-violet-100 dark:bg-violet-950/80 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-500/20">
+                    <span className="px-2 py-0.5 rounded text-xs bg-violet-100 dark:bg-violet-950/80 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-500/20">
                       Framer Motion
                     </span>
-                    <span className="px-2 py-0.5 rounded-full text-xs bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/20">
+                    <span className="px-2 py-0.5 rounded text-xs bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/20">
                       Lenis
                     </span>
+                  </div>
+                  <div className="mt-2">
+                    <a
+                      href={"https://github.com/souravpn/portfolio"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-2 py-0.5 rounded text-xs bg-pink-100 dark:bg-pink-950/80 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-pink-500/20 transition-all"
+                    >
+                      View this code on
+                      {/* GitHub Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="17"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        className="transition-transform group-hover:scale-110"
+                      >
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577 0-.285-.01-1.044-.015-2.049-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.652 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.604-.015 2.896-.015 3.286 0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -876,6 +1147,61 @@ export default function Home() {
           </svg>
         </motion.button>
       </div>
+
+      {/* Cert Modal */}
+      <AnimatePresence>
+        {selectedCert && (
+          <motion.div
+            className="fixed inset-0 z-150 flex items-center justify-center bg-black/60 backdrop-blur-sm px-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedCert(null)}
+          >
+            <motion.div
+              className="relative bg-white dark:bg-zinc-900 rounded-3xl p-8 w-full max-w-lg shadow-2xl"
+              initial={{ scale: 0.92, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.92, opacity: 0, y: 20 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedCert(null)}
+                aria-label="Close"
+                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-red-500 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <Image
+                src={selectedCert.src}
+                alt={selectedCert.full}
+                width={480}
+                height={340}
+                quality={95}
+                className="object-contain w-full rounded-xl"
+                style={{ height: "auto" }}
+              />
+              <p className="mt-5 text-center font-medium text-zinc-700 dark:text-zinc-300 whitespace-pre-line">
+                {selectedCert.full}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
