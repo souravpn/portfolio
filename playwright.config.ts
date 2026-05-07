@@ -20,7 +20,7 @@ export default defineConfig({
         },
       ],
     },
-    reducedMotion: "reduce",
+    contextOptions: { reducedMotion: "reduce" },
     trace: "on-first-retry",
     video: "on-first-retry",
   },
