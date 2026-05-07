@@ -20,6 +20,7 @@ export default defineConfig({
         },
       ],
     },
+    reducedMotion: "reduce",
     trace: "on-first-retry",
     video: "on-first-retry",
   },

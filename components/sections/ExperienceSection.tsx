@@ -10,7 +10,8 @@ export default function ExperienceSection() {
   const scrollToCard = (index: number) => {
     const container = carouselRef.current;
     if (!container) return;
-    container.scrollTo({ left: container.clientWidth * index, behavior: "smooth" });
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    container.scrollTo({ left: container.clientWidth * index, behavior: reduced ? "instant" : "smooth" });
     setActiveExp(index);
   };
 

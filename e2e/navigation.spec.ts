@@ -30,14 +30,15 @@ test.describe("Navigation", () => {
 
   test("footer Summary link scrolls to Professional Summary", async ({ page }) => {
     await page.locator("footer a[href='#summary']").click();
+    await page.waitForURL(/#summary$/);
     await expect(page.locator("#summary")).toBeInViewport({ timeout: 3000 });
-    // Heading should not be hidden behind the fixed nav
     const heading = page.getByRole("heading", { name: /professional summary/i });
     await expect(heading).toBeVisible();
   });
 
   test("footer Skills link scrolls to Skills heading visible", async ({ page }) => {
     await page.locator("footer a[href='#skills']").click();
+    await page.waitForURL(/#skills$/);
     await expect(page.locator("#skills")).toBeInViewport({ timeout: 3000 });
     const heading = page.getByRole("heading", { name: /skills/i }).first();
     await expect(heading).toBeVisible();
@@ -45,6 +46,7 @@ test.describe("Navigation", () => {
 
   test("footer Certifications link scrolls to Certifications heading visible", async ({ page }) => {
     await page.locator("footer a[href='#certifications']").click();
+    await page.waitForURL(/#certifications$/);
     await expect(page.locator("#certifications")).toBeInViewport({ timeout: 3000 });
     const heading = page.getByRole("heading", { name: /certifications/i }).first();
     await expect(heading).toBeVisible();

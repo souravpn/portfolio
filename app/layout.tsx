@@ -10,6 +10,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const lenis = new Lenis({
       lerp: 0.09,
       smoothWheel: true,
@@ -28,6 +30,10 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <title>Sourav Nayak — Portfolio</title>
+        <meta name="description" content="Personal portfolio of Sourav Prakash Nayak — Senior Software Engineer specialising in React, Next.js, TypeScript, and AI-assisted development." />
+      </head>
       <body className="antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}

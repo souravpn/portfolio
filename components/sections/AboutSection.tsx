@@ -19,7 +19,8 @@ export default function AboutSection() {
     const step = second
       ? second.offsetLeft - first.offsetLeft
       : first.offsetWidth;
-    container.scrollTo({ left: step * index, behavior: "smooth" });
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    container.scrollTo({ left: step * index, behavior: reduced ? "instant" : "smooth" });
     setActiveCert(index);
   };
 

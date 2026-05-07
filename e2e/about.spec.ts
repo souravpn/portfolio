@@ -25,9 +25,9 @@ test.describe("About section — certifications", () => {
   test("clicking a cert card opens the modal", async ({ page }) => {
     const firstCard = page.locator("#certifications [style]").first();
     await firstCard.click();
-    // Modal should appear with the cert's full name
+    // The Close button only exists inside the modal
     await expect(
-      page.getByText(certs[0].full.replace("\n", " "), { exact: false }),
+      page.getByRole("button", { name: /close/i }),
     ).toBeVisible({ timeout: 2000 });
   });
 
@@ -35,10 +35,10 @@ test.describe("About section — certifications", () => {
     const firstCard = page.locator("#certifications [style]").first();
     await firstCard.click();
     await page.waitForTimeout(300);
-    // Click the backdrop (outside the modal card)
+    // Click the backdrop (top-left corner, outside the modal card)
     await page.mouse.click(10, 10);
     await expect(
-      page.getByText(certs[0].full.replace("\n", " "), { exact: false }),
+      page.getByRole("button", { name: /close/i }),
     ).not.toBeVisible({ timeout: 2000 });
   });
 
@@ -48,7 +48,7 @@ test.describe("About section — certifications", () => {
     await page.waitForTimeout(300);
     await page.getByRole("button", { name: /close/i }).click();
     await expect(
-      page.getByText(certs[0].full.replace("\n", " "), { exact: false }),
+      page.getByRole("button", { name: /close/i }),
     ).not.toBeVisible({ timeout: 2000 });
   });
 });
