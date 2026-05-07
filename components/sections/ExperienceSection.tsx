@@ -10,8 +10,13 @@ export default function ExperienceSection() {
   const scrollToCard = (index: number) => {
     const container = carouselRef.current;
     if (!container) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    container.scrollTo({ left: container.clientWidth * index, behavior: reduced ? "instant" : "smooth" });
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    container.scrollTo({
+      left: container.clientWidth * index,
+      behavior: reduced ? "instant" : "smooth",
+    });
     setActiveExp(index);
   };
 
@@ -86,7 +91,7 @@ export default function ExperienceSection() {
                 <div className="px-8 pt-8 pb-6 border-b border-zinc-100 dark:border-zinc-800 flex items-start justify-between gap-4">
                   <div>
                     <h3 className="text-xl font-semibold">{exp.company}</h3>
-                    <p className="text-teal-500 dark:text-teal-400 mt-0.5">
+                    <p className="text-blue-500 dark:text-blue-400 mt-0.5">
                       {exp.role}
                     </p>
                   </div>
@@ -181,7 +186,7 @@ export default function ExperienceSection() {
             aria-label={`Go to experience ${index + 1}`}
             className={`h-2 rounded-full transition-all duration-300 ${
               activeExp === index
-                ? "w-6 bg-teal-400"
+                ? "w-6 bg-blue-400"
                 : "w-2 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-500"
             }`}
           />

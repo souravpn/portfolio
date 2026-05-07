@@ -311,7 +311,7 @@ export default function ContactSection() {
                 </p>
               )}
               {formState === "sent" && (
-                <p className="text-center text-sm text-teal-500">
+                <p className="text-center text-sm text-blue-500">
                   Message delivered! I&apos;ll get back to you soon.
                 </p>
               )}
