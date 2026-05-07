@@ -5,7 +5,6 @@ import { vi } from "vitest";
 // Mock Next.js Image — it uses DOM features unavailable in jsdom
 vi.mock("next/image", () => ({
   default: (props: Record<string, unknown>) => {
-    // eslint-disable-next-line @next/next/no-img-element
     const { src, alt, ...rest } = props as { src: string; alt: string };
     return { type: "img", props: { src, alt, ...rest } };
   },

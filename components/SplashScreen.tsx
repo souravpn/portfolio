@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, startTransition } from "react";
 import { splashWords } from "@/lib/data";
 
 export default function SplashScreen() {
@@ -10,7 +10,7 @@ export default function SplashScreen() {
   useEffect(() => {
     if (sessionStorage.getItem("splashShown")) return;
     sessionStorage.setItem("splashShown", "1");
-    setShow(true);
+    startTransition(() => setShow(true));
     const t = setTimeout(() => setShow(false), 3050);
     return () => clearTimeout(t);
   }, []);

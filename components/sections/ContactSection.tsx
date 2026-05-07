@@ -312,7 +312,7 @@ export default function ContactSection() {
               )}
               {formState === "sent" && (
                 <p className="text-center text-sm text-teal-500">
-                  Message delivered! I'll get back to you soon.
+                  Message delivered! I&apos;ll get back to you soon.
                 </p>
               )}
             </form>

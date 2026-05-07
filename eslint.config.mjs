@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Playwright tests are not React — skip React hook rules
+    "e2e/**",
   ]),
 ]);
 
