@@ -2,6 +2,8 @@
 
 Personal portfolio site for Sourav Prakash Nayak. Built with Next.js 16, React 19, TypeScript, and Tailwind CSS v4.
 
+[![CI](https://github.com/souravpn/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/souravpn/portfolio/actions/workflows/ci.yml)
+
 ## Tech Stack
 
 - **Framework**: Next.js 16 (App Router)
@@ -35,6 +37,21 @@ components/
 lib/
   data.ts                    # All static data (greetings, experiences, certs, splash) + types
 
+__tests__/
+  lib/data.test.ts           # Data integrity — required fields, uniqueness, ordering
+  utils/formatBytes.test.ts  # Byte-formatting utility edge cases
+  components/
+    Navigation.test.tsx      # Nav renders brand, links, theme toggle
+    Footer.test.tsx          # Footer links, badges, copyright year
+
+e2e/
+  fixtures.ts                # Custom Playwright fixture (suppresses splash screen)
+  home.spec.ts               # Page load, heading, nav, profile image
+  navigation.spec.ts         # Scroll-to-section, anchor offset correctness
+  experience.spec.ts         # Carousel chevrons, dots, card transitions
+  about.spec.ts              # Cert carousel, modal open/close
+  contact.spec.ts            # Form fields, validation, drop zone
+
 public/
   profile.png
   sf-day-bg.png              # Light mode cityscape background
@@ -65,6 +82,61 @@ GMAIL_APP_PASSWORD=xxxx xxxx xxxx xxxx
 ```
 
 The app password is generated at myaccount.google.com → Security → App Passwords (requires 2FA).
+
+## Testing
+
+### Unit tests (Vitest + React Testing Library)
+
+```bash
+npm test              # run once
+npm run test:watch    # watch mode
+npm run test:coverage # with coverage report
+```
+
+### E2E tests (Playwright)
+
+```bash
+npm run test:e2e        # headless Chromium
+npm run test:e2e:ui     # interactive Playwright UI
+npm run test:e2e:debug  # step-through debugger
+```
+
+Playwright starts the dev server automatically via `webServer` config.
+
+### Other checks
+
+```bash
+npm run typecheck   # tsc --noEmit
+npm run lint        # ESLint + Next.js rules
+npm run build       # production build
+```
+
+## CI/CD
+
+Every push and pull request to `main` runs a two-gate GitHub Actions pipeline:
+
+```
+push / PR
+    │
+    ▼
+ unit (ubuntu-latest)
+  ├─ typecheck
+  ├─ lint
+  ├─ vitest unit tests
+  └─ next build
+         │
+         ▼ (only if unit passes)
+ e2e (ubuntu-latest)
+  └─ playwright (chromium)
+       ├─ page load & navigation
+       ├─ experience carousel
+       ├─ certifications modal
+       └─ contact form
+```
+
+On failure, the Playwright HTML report is uploaded as a workflow artifact (retained 7 days).
+
+Vercel deploys automatically on merge to `main` after all CI gates pass.
 
 ## Features
 
