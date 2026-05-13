@@ -20,6 +20,7 @@ describe("Footer", () => {
     );
     expect(hrefs).toContain("#home");
     expect(hrefs).toContain("#about");
+    expect(hrefs).toContain("#featured");
     expect(hrefs).toContain("#experience");
     expect(hrefs).toContain("#contact");
     expect(hrefs).toContain("#summary");

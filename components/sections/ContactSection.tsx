@@ -108,7 +108,7 @@ export default function ContactSection() {
                 <div>
                   <p className="font-medium">Email</p>
                   <p className="text-blue-500 dark:text-blue-400">
-                    souravpn1985@gmail.com
+                    sourav@souravnayak.com
                   </p>
                 </div>
               </div>
