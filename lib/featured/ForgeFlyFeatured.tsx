@@ -4,19 +4,12 @@ export default function ForgeFlyFeatured() {
   return (
     <div className="max-w-7xl mx-auto bg-[#0A1428] border border-[#10B981]/20 rounded-3xl overflow-hidden shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300">
       {/* <!-- Preview Image --> */}
-      <div className="relative h-130 bg-gradient-to-br from-[#0A1428] to-[#1E2937] flex items-center justify-center overflow-hidden">
-        {/* <img
+      <div className="relative h-100 bg-gradient-to-br from-[#0A1428] to-[#1E2937] flex items-center justify-center overflow-hidden">
+        <img
           src="/forgefly-featured-section.png"
           alt="Forgefly featured"
           className="w-full h-full object-cover opacity-80"
-        /> */}
-        <div className="max-w-6xl mx-auto">
-          <img
-            src="/forgefly-featured-section.png"
-            alt="Forgefly - AI Business OS on MacBook, iPad & iPhone"
-            className="w-full rounded-3xl shadow-2xl"
-          />
-        </div>
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A1428] via-transparent to-transparent"></div>
         <div className="absolute bottom-6 left-6">
           <span className="px-4 py-1.5 bg-blue-600 text-white text-sm font-medium rounded-full flex items-center gap-2">
