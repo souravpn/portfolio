@@ -34,7 +34,7 @@ export const experiences: Experience[] = [
   {
     company: "Apple Inc.",
     role: "Frontend Developer (with AI)",
-    period: "2024 — Present",
+    period: "2024 — 2026",
     bullets: [
       "Enhanced AI-assisted development workflows by integrating Claude Code plugins into pre-commit and PR processes, incorporating automated linting, vulnerability scanning, unit tests, and silent failure detection—completing full checks in under 5 minutes and significantly boosting developer velocity.",
       "Built a search agent using Claude, vector embeddings, and Slack integration to query documentation and historical resolutions, reducing weekly on-call time for engineers by 65%",

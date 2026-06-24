@@ -67,7 +67,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col gap-3">
                 <a href="#featured" className="hover:text-blue-500 transition">
-                  Featured
+                  Side Projects
                 </a>
                 <a
                   href="#experience"

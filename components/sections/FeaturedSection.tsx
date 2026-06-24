@@ -41,7 +41,7 @@ export default function FeaturedSection() {
       <div className="flex flex-col items-center mb-16 px-6">
         <div className="flex flex-col items-center gap-6 w-full max-w-3xl">
           <h2 className="text-5xl font-bold tracking-tight text-blue-500 text-center w-full">
-            Featured Projects
+            Side Projects
           </h2>
           <div className="w-3/5 h-px bg-zinc-300 dark:bg-zinc-700" />
         </div>

@@ -81,6 +81,7 @@ export default function ForgeFlyFeatured() {
           <a
             href="https://forgefly.io"
             target="_blank"
+            rel="noopener noreferrer"
             className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-4 rounded-2xl text-center transition"
           >
             Try Live Demo →
